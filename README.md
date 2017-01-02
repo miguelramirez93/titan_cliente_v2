@@ -1,1 +1,12 @@
-# titan_cliente_v2
+# titan-cliente-v2
+
+This project is generated with [yo oas-generator](https://github.com/fabianLeon/oas)
+version 0.0.6.
+
+## Build & development
+
+Run `grunt` for building and `grunt serve` for preview.
+
+## Testing
+
+Running `grunt test` will run the unit tests with karma.

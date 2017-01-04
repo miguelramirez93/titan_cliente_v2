@@ -17,13 +17,13 @@ angular.module('titanClienteV2App')
     console.log(self.preliquidacion);
     if (self.preliquidacion.Nomina.TipoNomina.Nombre === "HC"){
     	self.gridOptions = {
-	      enableFiltering : false,
+	      enableFiltering : true,
 	      enableSorting : true,
 	      enableRowSelection: true,
 	      enableSelectAll: true,
 	      columnDefs : [
 	        {field: 'Id',             visible : false},
-          {field: 'NumeroContrato.Contratista.Id'},
+          {field: 'NumeroContrato.Id'},
 	        {field: 'NumeroContrato.Contratista.NomProveedor',  displayName: 'Nombre'},
 	        {field: 'NumeroContrato.Contratista.NumDocumento',  displayName: 'Documento'},
 	        {field: 'NumeroContrato.Contratista.TipoCuentaBancaria',  displayName: 'Tipo de cuenta'},
@@ -44,7 +44,9 @@ angular.module('titanClienteV2App')
         var personas = self.gridApi.selection.getSelectedRows();
         var personas_a_liquidar = [];
         for (var i=0; i < personas.length; i++){
-         var persona = { IdPersona : personas[i].NumeroContrato.Contratista.Id}
+         var persona = { IdPersona : personas[i].NumeroContrato.Contratista.Id ,
+                         NumeroContrato :  personas[i].NumeroContrato.Id
+                        };
          console.log(personas[i].NumeroContrato.Contratista.Id);
           personas_a_liquidar.push(persona)
         }
@@ -62,7 +64,8 @@ angular.module('titanClienteV2App')
         titanMidRequest.post('preliquidacion', datos_preliquidacion).then(function(response) {
             
               self.saving =false;
-              self.btnGenerartxt="Generar"
+              self.btnGenerartxt="Generar";
+              $window.location.href = '#/preliquidacion/preliquidacion_detalle';
             });;
         
     };

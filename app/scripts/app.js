@@ -62,6 +62,11 @@ angular
         controller: 'PreliquidacionPreliquidacionDetalleCtrl',
         controllerAs: 'preliquidacionDetalle'
       })
+      .when('/preliquidacion/resumen_preliquidacion', {
+        templateUrl: 'views/preliquidacion/resumen_preliquidacion.html',
+        controller: 'PreliquidacionResumenPreliquidacionCtrl',
+        controllerAs: 'resumenPreliquidacion'
+      })
       .otherwise({
         redirectTo: '/'
       });

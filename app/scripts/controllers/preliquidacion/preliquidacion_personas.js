@@ -23,31 +23,31 @@ angular.module('titanClienteV2App')
 	      enableSelectAll: true,
 	      columnDefs : [
 	        {field: 'Id',             visible : false},
-          {field: 'NumeroContrato.Id'},
-	        {field: 'NumeroContrato.Contratista.NomProveedor',  displayName: 'Nombre'},
-	        {field: 'NumeroContrato.Contratista.NumDocumento',  displayName: 'Documento'},
-	        {field: 'NumeroContrato.Contratista.TipoCuentaBancaria',  displayName: 'Tipo de cuenta'},
-	        {field: 'NumeroContrato.Contratista.NumCuentaBancaria',  displayName: 'Numero de Cuenta'},
-	        
-	        
+          {field: 'NumeroContrato' ,  displayName: 'Numero de Contrato'},
+	        {field: 'Nombre',  displayName: 'Nombre'},
+	        {field: 'NumDocumento',  displayName: 'Documento'},
+
+
+
 	      ],
 	      onRegisterApi : function( gridApi ) {
 	        self.gridApi = gridApi;
 	      }
 
 	    };
-    	 titanRequest.get('acta_inicio','limit=0&query=FechaInicio__lte:'+self.preliquidacion.FechaInicio+',FechaFin__gte:'+self.preliquidacion.FechaFin+',NumeroContrato.TipoContrato.TipoContrato:'+self.preliquidacion.Nomina.TipoNomina.Nombre).then(function(response) {
+    	 titanRequest.post('informacion_contrato',preliquidacion).then(function(response) {
       	 self.gridOptions.data = response.data;
      });
 
    	  self.generar_preliquidacion = function(){
         var personas = self.gridApi.selection.getSelectedRows();
+
         var personas_a_liquidar = [];
         for (var i=0; i < personas.length; i++){
-         var persona = { IdPersona : personas[i].NumeroContrato.Contratista.Id ,
-                         NumeroContrato :  personas[i].NumeroContrato.Id
+         var persona = { IdPersona : personas[i].Id ,
+                         NumeroContrato :  personas[i].NumeroContrato
                         };
-         console.log(personas[i].NumeroContrato.Contratista.Id);
+         
           personas_a_liquidar.push(persona)
         }
         var datos_preliquidacion = {
@@ -56,18 +56,18 @@ angular.module('titanClienteV2App')
 
         };
         titanRequest.delete('detalle_preliquidacion',''+self.preliquidacion.Id).then(function(response) {
-      	 
+
      	});
-      
+
      	self.saving =true;
      	self.btnGenerartxt = "Generando...";
         titanMidRequest.post('preliquidacion', datos_preliquidacion).then(function(response) {
-            
+
               self.saving =false;
               self.btnGenerartxt="Generar";
               $window.location.href = '#/preliquidacion/preliquidacion_detalle';
             });;
-        
+
     };
 
     }

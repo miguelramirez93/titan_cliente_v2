@@ -24,7 +24,7 @@ angular.module('titanClienteV2App')
 	      columnDefs : [
 	        {field: 'Id',             visible : false},
           {field: 'NumeroContrato' ,  displayName: 'Numero de Contrato'},
-	        {field: 'Nombre',  displayName: 'Nombre'},
+	        {field: 'NombreProveedor',  displayName: 'Nombre'},
 	        {field: 'NumDocumento',  displayName: 'Documento'},
 
 
@@ -35,7 +35,7 @@ angular.module('titanClienteV2App')
 	      }
 
 	    };
-    	 titanRequest.post('informacion_contrato',preliquidacion).then(function(response) {
+    	 titanRequest.post('funcionario_proveedor',preliquidacion).then(function(response) {
       	 self.gridOptions.data = response.data;
      });
 
@@ -47,7 +47,7 @@ angular.module('titanClienteV2App')
          var persona = { IdPersona : personas[i].Id ,
                          NumeroContrato :  personas[i].NumeroContrato
                         };
-         
+
           personas_a_liquidar.push(persona)
         }
         var datos_preliquidacion = {

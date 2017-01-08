@@ -23,7 +23,7 @@
                             <th>Concepto</th><th>Total</th>
                         </tr>
                         <tr>
-                            <th>suledos netos: </th><td>{{preliquidacionDetalle.total_sueldos_neto | currency}}</td>
+                            <th>sueldos netos: </th><td>{{preliquidacionDetalle.total_sueldos_neto | currency}}</td>
                         </tr>
                         <tr ng-repeat="(key, value) in preliquidacionDetalle.resumen_conceptos">
                             <th>{{key}}</th><td>{{value | currency}}</td>
@@ -47,7 +47,7 @@
                     <br>
                     <table class="table">
                         <tr>
-                            <th>Total Devengo:</th><td>{{preliquidacionDetalle.seleccion_tot_devengo | currency}}</td>
+                            <th>Total Devengado:</th><td>{{preliquidacionDetalle.seleccion_tot_devengo | currency}}</td>
                         </tr>
                         <tr>
                             <th>Total Descuentos:</th><td>{{preliquidacionDetalle.seleccion_tot_descuentos | currency}}</td>
@@ -60,5 +60,3 @@
             </div>
         </div>
     </div>
-
- 

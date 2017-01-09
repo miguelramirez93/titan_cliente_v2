@@ -22,7 +22,7 @@ angular.module('titanClienteV2App')
       self.formVisibility = true;
 
     };
-    
+
     self.gridOptions = {
 
       enableFiltering : false,
@@ -54,7 +54,7 @@ angular.module('titanClienteV2App')
 
 
      self.registrar_preliqu = function() {
-      var nomina = { 
+      var nomina = {
         Id : parseInt(self.nomina.Id)
       };
         var pliquidacion = {
@@ -67,8 +67,8 @@ angular.module('titanClienteV2App')
               FechaInicio:  self.FechaInicio,
               FechaFin: self.FechaFin
           };
-     
-      
+
+
             titanRequest.post('preliquidacion', pliquidacion).then(function(response) {
               console.log(response.data);
               if(typeof(response.data)=="object"){
@@ -81,10 +81,10 @@ angular.module('titanClienteV2App')
                 alert("error: "+response.data);
               }
             });;
-        
+
         self.formVisibility = false;
      };
-    
+
      self.generar_preliquidacion = function(row){
         self.preliquidacion = preliquidacion;
         self.preliquidacion.Id = row.entity.Id;
@@ -103,5 +103,5 @@ angular.module('titanClienteV2App')
         console.log(row.entity);
         $window.location.href = '#/preliquidacion/preliquidacion_detalle';
      };
-        
-  });   
+
+  });

@@ -1,18 +1,18 @@
 <br>
- <div class="alert alert-warning text-center" ng-show='preliquidacionRegistro.loading'>  
+ <div class="alert alert-warning text-center" ng-show='preliquidacionRegistro.loading'>
             <div class="row">
-              <h1 class="col-sm-7">Generando Preliquidación...</h1>    
+              <h1 class="col-sm-7">Generando Preliquidación...</h1>
               <div class="loader col-sm-5" ></div>
             </div>
 </div>
 <div class="row jumbotron" ng-hide='preliquidacionRegistro.loading'>
 <button class="btn btn-success" ng-click='preliquidacionRegistro.ShowForm()' ng-hide="preliquidacionRegistro.formVisibility">Añadir Preliquidación</button>
     <div  class="col-sm-12 panel panel-default" ng-show='preliquidacionRegistro.formVisibility' >
-        
+
 
             <h2>Registro de Preliquidacion</h2>
           <form>
-             
+
           <div class="form-group row">
             <input name="id_nomina" type="hidden" ng-model="preliquidacionRegistro.idNomina" disabled="true">
             <label for="input_nombre" class="col-sm-5 col-form-label">Nombre de la Preliquidacion</label>
@@ -34,18 +34,17 @@
            <div class="form-group row">
             <label for="input_periodo" class="col-sm-5 col-form-label">Fecha Inicio</label>
              <md-datepicker ng-model="preliquidacionRegistro.FechaInicio" md-placeholder="Fecha de inicio"></md-datepicker>
-
           </div>
            <div class="form-group row">
             <label for="input_periodo" class="col-sm-5 col-form-label">Fecha Final</label>
-             <md-datepicker ng-model="preliquidacionRegistro.FechaFin" md-placeholder="Fecha de finaliozación"></md-datepicker>
+             <md-datepicker ng-model="preliquidacionRegistro.FechaFin" md-placeholder="Fecha de finalización"></md-datepicker>
 
           </div>
             <button ng-click='preliquidacionRegistro.limpiar()' class="btn btn-danger">Cancelar</button>
             <button ng-click='preliquidacionRegistro.registrar_preliqu()' class="btn btn-success">Registrar</button>
 
          </form>
-        
+
 
     </div>
     <br>

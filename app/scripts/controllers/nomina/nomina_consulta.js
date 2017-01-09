@@ -21,7 +21,7 @@ angular.module('titanClienteV2App')
       self.formVisibility = true;
 
     };
-    
+
     self.gridOptions = {
 
       enableFiltering : false,
@@ -74,24 +74,24 @@ angular.module('titanClienteV2App')
               Estado: self.selectEstado,
               Periodo: self.periodoNomina
           };
-     
-      
+
+
             titanRequest.post('nomina', nomina).then(function(response) {
               console.log(response.data);
               if(typeof(response.data)=="object"){
                 alert("Nomina "+response.data.Nombre+" registrada correctamente");
-                $http.get(CONFIG.APIURLCRUD+'nomina?limit=0&sortby=Id&order=desc').then(function(response) {
-                  self.gridOptions.data = response.data;
+                titanRequest.get('nomina','limit=0&sortby=Id&order=desc').then(function(response) {
+                 self.gridOptions.data = response.data;
                 });
               }
               if(typeof(response.data)=="string"){
                 alert("error: "+response.data);
               }
             });;
-        
+
         self.formVisibility = false;
      };
-    
+
 
       self.consulta_preliquidacion = function(row){
       	var tipo_nomina = {
@@ -112,5 +112,5 @@ angular.module('titanClienteV2App')
       };
 
 //consulta_preliquidacion(row)
-        
+
   });

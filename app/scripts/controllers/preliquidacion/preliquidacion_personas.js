@@ -15,7 +15,7 @@ angular.module('titanClienteV2App')
    self.btnGenerartxt = "Generar";
    self.saving = false;
     console.log(self.preliquidacion);
-    if (self.preliquidacion.Nomina.TipoNomina.Nombre === "HC"){
+    if (self.preliquidacion.Nomina.TipoNomina.Nombre === "HC" || self.preliquidacion.Nomina.TipoNomina.Nombre === "HC-SALARIOS"){
     	self.gridOptions = {
 	      enableFiltering : true,
 	      enableSorting : true,

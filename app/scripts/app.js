@@ -26,6 +26,7 @@ angular
     'ui.grid.treeView',
     'ui.grid.selection',
     'ui.grid.exporter',
+    'ui.grid.autoResize',
     'titanService',
     'titanMidService'
   ])
@@ -66,6 +67,11 @@ angular
         templateUrl: 'views/preliquidacion/resumen_preliquidacion.html',
         controller: 'PreliquidacionResumenPreliquidacionCtrl',
         controllerAs: 'resumenPreliquidacion'
+      })
+      .when('/novedades/novedad_registro', {
+        templateUrl: 'views/novedades/novedad_registro.html',
+        controller: 'NovedadesNovedadRegistroCtrl',
+        controllerAs: 'novedadRegistro'
       })
       .otherwise({
         redirectTo: '/'

@@ -100,25 +100,33 @@ angular.module('titanClienteV2App')
     });
 
     self.Registrar = function(){
-      var valor = self.valor;
+      var valor = parseFloat(self.valor);
       if(self.tipo === "porcentaje"){
         valor = valor / 100;
       }
-      var concepto = {Id : $scope.concepto.Id }
+      var concepto = {Id : $scope.concepto.Id };
+      var persona = {Id : $scope.persona.Id };
+      var nomina = {Id : $scope.nomina.Id };
       var novedad_por_persona = {
         Concepto: concepto,
         EstadoNovedad: "Activo",
         FechaDesde: self.FechaInicio,
         FechaHasta: self.FechaFin,
         NumCuotas: 0,
-        Persona: $scope.persona.Id,
-        Nomina: $scope.nomina.Id,
+        Persona: persona,
+        Nomina: nomina ,
         Tipo: self.tipo,
         ValorNovedad: valor
       };
       console.log(novedad_por_persona);
       titanRequest.post('concepto_por_persona',novedad_por_persona).then(function(response) {
-       console.log(response.data);
+        if(typeof(response.data)=="object"){
+          alert("Novedad registrada correctamente");
+
+        }
+        if(typeof(response.data)=="string"){
+          alert("error: "+response.data);
+        }
       });
 
     };

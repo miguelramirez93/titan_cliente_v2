@@ -73,6 +73,12 @@ angular
         controller: 'NovedadesNovedadRegistroCtrl',
         controllerAs: 'novedadRegistro'
       })
+
+      .when('/novedades/novedad_consulta', {
+        templateUrl: 'views/novedades/novedad_consulta.html',
+        controller: 'NovedadesNovedadConsultaCtrl',
+        controllerAs: 'novedadConsulta'
+      })
       .otherwise({
         redirectTo: '/'
       });

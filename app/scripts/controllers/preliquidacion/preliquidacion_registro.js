@@ -88,6 +88,7 @@ angular.module('titanClienteV2App')
      self.generar_preliquidacion = function(row){
         self.preliquidacion = preliquidacion;
         self.preliquidacion.Id = row.entity.Id;
+        self.preliquidacion.Fecha = row.entity.Fecha;
         self.preliquidacion.FechaInicio = row.entity.FechaInicio;
         self.preliquidacion.FechaFin = row.entity.FechaFin;
         self.preliquidacion.Nomina = self.nomina
@@ -97,6 +98,7 @@ angular.module('titanClienteV2App')
      self.detalle_preliquidacion = function(row){
         self.preliquidacion = preliquidacion;
         self.preliquidacion.Id = row.entity.Id;
+        self.preliquidacion.Fecha = row.entity.Fecha;
         self.preliquidacion.FechaInicio = row.entity.FechaInicio;
         self.preliquidacion.FechaFin = row.entity.FechaFin;
         self.preliquidacion.Nomina = self.nomina
